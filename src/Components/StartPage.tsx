@@ -59,7 +59,6 @@ const StartPage: FunctionComponent<
           }}
           value={gridSize}
           onChange={(event) => {
-            console.log(event?.target.value);
             const value: number = isNaN(parseInt(event?.target.value))
               ? 0
               : parseInt(event?.target.value);

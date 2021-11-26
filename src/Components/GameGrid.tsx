@@ -33,6 +33,7 @@ const GameGrid: FunctionComponent<
   const [array, setArray] = React.useState(initialArray);
   const [XOvalue, setXOValue] = React.useState<"X" | "O">("X");
   const [isDone, setIsDone] = React.useState(false);
+  const [message, setMessage] = React.useState("");
   const handleOnClick = (event: any) => {
     const newArray = [...array];
     const item = newArray[event.target.value];
@@ -50,6 +51,7 @@ const GameGrid: FunctionComponent<
   const callBackFunction = (toMatch: string, playersDate: PlayersValues) => {
     const winMessage = getWinnerMessage(toMatch, playersDate);
     alert(winMessage);
+    setMessage(winMessage);
     setIsDone(true);
   };
 
@@ -68,10 +70,9 @@ const GameGrid: FunctionComponent<
         <Typography
           className={classes.text}
         >{`${playersDate?.player2?.name} use ${playersDate?.player2?.xoValue}`}</Typography>
-        <Typography className={classes.text}>{`${getPlayerName(
-          playersDate,
-          XOvalue
-        )} turn`}</Typography>
+        <Typography className={classes.text}>
+          {isDone ? message : `${getPlayerName(playersDate, XOvalue)} turn`}
+        </Typography>
       </div>
 
       <div className={classes.root}>

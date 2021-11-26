@@ -5,7 +5,7 @@ import {
 } from "./types";
 
 export const getWinnerMessage = (value: string, playersDate: PlayersValues) => {
-  if(!value || (value !== "X" && value!== "O")) return "";
+  if (!value || (value !== "X" && value !== "O")) return "";
   const winnerName =
     playersDate?.player1?.xoValue === value
       ? playersDate?.player1?.name
@@ -83,7 +83,8 @@ export const checkWinnerTable = (payload: CheckWinnerTablePayload) => {
 
   if (toMatch != "") {
     for (cross = 1; cross <= size; cross++) {
-      if (getCellValue({ ...data, row: cross, col: cross }) == toMatch) matches++;
+      if (getCellValue({ ...data, row: cross, col: cross }) == toMatch)
+        matches++;
     }
     if (matches == size) {
       callBackFunction(toMatch, playersDate);
@@ -101,7 +102,9 @@ export const checkWinnerTable = (payload: CheckWinnerTablePayload) => {
   toMatch = getCellValue({ ...data, row: cross, col: size - 1 });
   if (toMatch != "") {
     for (cross = 1; cross < size; cross++) {
-      if (getCellValue({ ...data, row: cross, col: size - 1 - cross }) == toMatch)
+      if (
+        getCellValue({ ...data, row: cross, col: size - 1 - cross }) == toMatch
+      )
         matches++;
     }
     if (matches == size) {
