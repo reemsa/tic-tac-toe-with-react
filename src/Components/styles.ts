@@ -14,18 +14,18 @@ const styles = (theme: Theme) =>
       display: "table-cell",
       textAlign: "center",
       fontFamily: "cursive",
-      fontSize:40,
-    backgroundColor:"#e6e6e6",
+      fontSize: 40,
+      backgroundColor: "#e6e6e6",
     },
     root: {
       display: "flex",
       flexWrap: "wrap",
-        width:"80%",
-        position:"relative",
-        left:"10%",
-        marginTop:25,
-        height:'75vh',
-        marginBottom:"5%"
+      width: "80%",
+      position: "relative",
+      left: "10%",
+      marginTop: 25,
+      height: "75vh",
+      marginBottom: "5%",
     },
     startPage: {
       width: "100%",
@@ -75,34 +75,35 @@ const styles = (theme: Theme) =>
       position: "relative",
       left: "50%",
       marginTop: 10,
-      backgroundColor:"#e6e6e6",
-      fontSize:18,
+      backgroundColor: "#e6e6e6",
+      fontSize: 18,
       "&:hover": {
         cursor: "pointer",
-        backgroundColor:"#bdbdbd"
+        backgroundColor: "#bdbdbd",
       },
     },
     switch: {
       position: "relative",
       top: 15,
     },
-    gameRoot:{
-        width:"100%",
-        height:"100%",
-         backgroundImage:
+    gameRoot: {
+      width: "100%",
+      height: "100%",
+      backgroundImage:
         "url(https://media.istockphoto.com/vectors/tictactoe-back-to-school-background-doodle-tic-tac-toe-game-pen-and-vector-id989794376)",
     },
     infoBox: {
       width: "100%",
       height: 48,
       backgroundColor: "#e6e6e6",
-      display:"flex",
-      justifyContent:"space-around",
-      alignItems:"center",
-      boxShadow:"rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px"
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "center",
+      boxShadow:
+        "rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px",
     },
-    disabledButton:{
-        backgroundColor:"#d5d5d5 !important"
+    disabledButton: {
+      backgroundColor: "#d5d5d5 !important",
     },
     actionButton: {
       textAlign: "center",
@@ -110,11 +111,11 @@ const styles = (theme: Theme) =>
       position: "relative",
       left: "40%",
       margin: 10,
-      backgroundColor:"#e6e6e6",
-      fontSize:18,
+      backgroundColor: "#e6e6e6",
+      fontSize: 18,
       "&:hover": {
         cursor: "pointer",
-        backgroundColor:"#bdbdbd"
+        backgroundColor: "#bdbdbd",
       },
     },
   });

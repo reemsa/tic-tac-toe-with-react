@@ -8,16 +8,16 @@ export interface PlayersValues {
   player2: PlayerData;
 }
 
-export interface GetValuePayload{
-    array:{index:number, value:string}[];
-    row:number;
-    col:number;
-    gridSize:number;
+export interface GetValuePayload {
+  array: { index: number; value: string }[];
+  row: number;
+  col: number;
+  gridSize: number;
 }
 
-export interface CheckWinnerTablePayload{
-array:{index:number, value:string}[];
- size:number;
-  playersDate:PlayersValues;
-   callBackFunction?:(toMatch:string, playersDate:PlayersValues)=> void
+export interface CheckWinnerTablePayload {
+  array: { index: number; value: string }[];
+  size: number;
+  playersDate: PlayersValues;
+  callBackFunction?: (toMatch: string, playersDate: PlayersValues) => void;
 }

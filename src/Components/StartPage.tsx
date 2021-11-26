@@ -25,12 +25,17 @@ const StartPage: FunctionComponent<
 
   const [openGame, setOpenGame] = React.useState<boolean>(false);
   const handleClose = () => {
-    setOpenGame(false)
-  }
-
+    setOpenGame(false);
+  };
 
   if (openGame) {
-    return <GameGrid gridSize={gridSize ?? 0} onClose={handleClose} playersDate={playersDate}/>;
+    return (
+      <GameGrid
+        gridSize={gridSize ?? 0}
+        onClose={handleClose}
+        playersDate={playersDate}
+      />
+    );
   }
 
   return (
@@ -38,7 +43,7 @@ const StartPage: FunctionComponent<
       <div className={classes.box}>
         <Typography className={classes.text}>Enter Board Size</Typography>
         <TextField
-        type="number"
+          type="number"
           variant="outlined"
           id="standard-secondary"
           className={classes.gridSizeInput}
@@ -48,24 +53,25 @@ const StartPage: FunctionComponent<
               root: classes.inputRoot,
             },
             inputProps: {
-                max: 9, min: 3
-            }
+              max: 9,
+              min: 3,
+            },
           }}
           value={gridSize}
           onChange={(event) => {
-              console.log(event?.target.value)
+            console.log(event?.target.value);
             const value: number = isNaN(parseInt(event?.target.value))
               ? 0
               : parseInt(event?.target.value);
             setGridSize(value);
           }}
-          onBlur={event => {
+          onBlur={(event) => {
             let value: number = isNaN(parseInt(event?.target.value))
-            ? 3
-            : parseInt(event?.target.value);
+              ? 3
+              : parseInt(event?.target.value);
             value = value < 3 ? 3 : value;
             value = value > 9 ? 9 : value;
-          setGridSize(value);
+            setGridSize(value);
           }}
         />
       </div>
@@ -99,11 +105,19 @@ const StartPage: FunctionComponent<
             color="secondary"
             className={classes.switch}
             onChange={(event) => {
-                const player1XOValue = event.target.checked ? "O" : "X";
-                const player2XOValue = event.target.checked ? "X" : "O";
-                setPlayersData({...playersDate, ["player1"]:{...playersDate?.player1, xoValue:player1XOValue}, ["player2"]:{
-                    ...playersDate?.player2, xoValue:player2XOValue
-                }})
+              const player1XOValue = event.target.checked ? "O" : "X";
+              const player2XOValue = event.target.checked ? "X" : "O";
+              setPlayersData({
+                ...playersDate,
+                ["player1"]: {
+                  ...playersDate?.player1,
+                  xoValue: player1XOValue,
+                },
+                ["player2"]: {
+                  ...playersDate?.player2,
+                  xoValue: player2XOValue,
+                },
+              });
             }}
           />
           <span className={classes.label}>O</span>
@@ -137,16 +151,28 @@ const StartPage: FunctionComponent<
             color="secondary"
             className={classes.switch}
             onChange={(event) => {
-                const player1XOValue = event.target.checked ? "X" : "O";
-                const player2XOValue = event.target.checked ? "O" : "X";
-                setPlayersData({...playersDate, ["player1"]:{...playersDate?.player1, xoValue:player1XOValue}, ["player2"]:{
-                    ...playersDate?.player2, xoValue:player2XOValue
-                }})
+              const player1XOValue = event.target.checked ? "X" : "O";
+              const player2XOValue = event.target.checked ? "O" : "X";
+              setPlayersData({
+                ...playersDate,
+                ["player1"]: {
+                  ...playersDate?.player1,
+                  xoValue: player1XOValue,
+                },
+                ["player2"]: {
+                  ...playersDate?.player2,
+                  xoValue: player2XOValue,
+                },
+              });
             }}
           />
           <span className={classes.label}>O</span>
         </InputLabel>
-        <Button variant={"outlined"} className={classes.next} onClick={() => setOpenGame(true)}>
+        <Button
+          variant={"outlined"}
+          className={classes.next}
+          onClick={() => setOpenGame(true)}
+        >
           Next
         </Button>
       </div>
