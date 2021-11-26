@@ -6,6 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { PlayersValues } from "../types";
 import { checkWinnerTable, getPlayerName, getWinnerMessage } from "../utils";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContentText from "@material-ui/core/DialogContentText";
 
 interface GameGridProps {
   gridSize?: number;
@@ -34,6 +37,7 @@ const GameGrid: FunctionComponent<
   const [XOvalue, setXOValue] = React.useState<"X" | "O">("X");
   const [isDone, setIsDone] = React.useState(false);
   const [message, setMessage] = React.useState("");
+  const [open, setOpen] = React.useState(false);
   const handleOnClick = (event: any) => {
     const newArray = [...array];
     const item = newArray[event.target.value];
@@ -46,6 +50,7 @@ const GameGrid: FunctionComponent<
   const handleReset = () => {
     setArray(array?.map((item) => ({ ...item, value: "" })));
     setIsDone(false);
+    setMessage("");
   };
 
   const callBackFunction = (toMatch: string, playersDate: PlayersValues) => {
@@ -53,12 +58,16 @@ const GameGrid: FunctionComponent<
     alert(winMessage);
     setMessage(winMessage);
     setIsDone(true);
+    setOpen(true);
   };
 
   React.useEffect(() => {
     const done = array?.every((item) => item?.value);
+    if (done) {
+      setIsDone(done);
+      setMessage("Match drawn...");
+    }
     checkWinnerTable({ array, playersDate, size: gridSize, callBackFunction });
-    done && setIsDone(done);
   }, [XOvalue]);
 
   return (
